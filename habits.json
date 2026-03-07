@@ -3,26 +3,12 @@
         "name": "Teeth",
         "id": 1,
         "color": "#f06017",
-        "complete_dates": [
-            "2026-03-07"
-        ]
+        "complete_dates": []
     },
     {
-        "name": "Sleep",
+        "name": "Read",
         "id": 2,
-        "color": "#5210ce",
-        "complete_dates": []
-    },
-    {
-        "name": "Tree",
-        "id": 3,
-        "color": "#ce1020",
-        "complete_dates": []
-    },
-    {
-        "name": "Tree",
-        "id": 4,
-        "color": "#ce1020",
+        "color": "FFFFFF",
         "complete_dates": []
     }
 ]

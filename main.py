@@ -67,14 +67,3 @@ class Tracker():
             self.habits[i['id']] = load_habit
         if self.habits:
             self.new_id = max(self.habits.keys())
-
-
-obj = Tracker()
-obj.add_habit(name='Teeth', color='#f06017')
-obj.add_habit(name='Sleep', color="#5210ce")
-obj.load()
-obj.add_habit(name='Tree', color="#ce1020")
-obj.date_complete(1)
-obj.save()
-print(obj.get_habit(1))
-print(obj.new_id)
