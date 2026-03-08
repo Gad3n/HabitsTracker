@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracker</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 
 <body>
@@ -12,14 +13,12 @@
         Habits List
     </h3>
     <form id="habit_create" , method="post">
-        <input type="text" , name="habit_name"><br>
-        <input type="color" , name="habit_color"><br>
+        <input type="text" , name="habit_name" , id="habit_name" , placeholder="Habits name" required><br>
+        <input type="color" , name="habit_color" , id="habit_color"><br>
         <button type="submit">Sumbit</button><br>
     </form>
 
-    <button type="button" , id="complete_check">Complete</button>
-
-    <div id="habits_list"></div>
+    <div class="container" id="habits_list"></div>
     <script src="{{url_for('static', filename='scipt.js')}}"></script>
 
 </body>

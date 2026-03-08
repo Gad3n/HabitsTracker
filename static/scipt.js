@@ -2,12 +2,33 @@ async function loadHabits() {
     const response = await fetch('/habits');
     const habits = await response.json();
     const container = document.getElementById('habits_list');
+    container.innerHTML = '';
 
     habits.forEach(habit => {
         const block = document.createElement('div');
 
-        block.textContent = habit.name
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = habit.name;
 
+        const completeBtn = document.createElement('button');
+        completeBtn.dataset.id = habit.id;
+        completeBtn.className = 'complete_button';
+
+        completeBtn.addEventListener('click', async (e) => {
+            const id = e.target.dataset.id;
+            try {
+                const res = await fetch(`/habits/${id}/complete`, { method: 'POST' });
+                if (!res.ok) throw new Error('Error Button');
+                const updatedHabits = await res.json();
+                completeBtn.classList.toggle('completed')
+                console.log('Updated habits:', updatedHabits);
+            } catch (err) {
+                console.error(err)
+            }
+        })
+
+        block.appendChild(nameSpan);
+        block.appendChild(completeBtn);
         container.appendChild(block);
     });
 }
@@ -26,12 +47,5 @@ document.getElementById('habit_create').addEventListener('submit', function (e) 
         .then(response => response.json())
         .then(result => console.log(result))
 })
-document.getElementById('complete_check').addEventListener('click', async function (e) {
-    const habit_id = this.getAttribute('id');
-    fetch('/habits/1/complete', {
-        method: 'POST'
-    })
-        .then(response => response.json())
-        .then(result => console.log(result))
-})
+
 loadHabits()
