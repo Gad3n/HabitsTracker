@@ -57,8 +57,14 @@ class Tracker():
             json.dump(full_dict, f, ensure_ascii=False, indent=4)
 
     def load(self):
-        with open(file, 'r', encoding='utf-8') as f:
-            load_data = json.load(f)
+        try:
+            with open(file, 'r', encoding='utf-8') as f:
+                load_data = json.load(f)
+        except FileNotFoundError:
+            load_data = []
+        except json.JSONDecodeError:
+            load_data = []
+
         for i in load_data:
             dates = [date.fromisoformat(d_str)
                      for d_str in i['complete_dates']]

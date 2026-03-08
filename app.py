@@ -1,10 +1,14 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from main import Tracker, Habit
-
 
 app = Flask(__name__)
 tracker = Tracker()
 tracker.load()
+
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 
 @app.route('/habits', methods=['GET'])
@@ -16,11 +20,11 @@ def get_habits():
 def create_habits():
     data = request.get_json()
 
-    if not data or 'name' not in data:
+    if not data or 'habit_name' not in data:
         return jsonify({'error': 'Missing habit name'}), 400
 
-    name = data['name']
-    color = data.get('color', '')
+    name = data['habit_name']
+    color = data.get('habit_color', '')
 
     new_id = tracker.add_habit(name, color)
     tracker.save()
