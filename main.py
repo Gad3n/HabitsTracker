@@ -37,6 +37,14 @@ class Tracker():
         self.habits[self.new_id] = new_habit
         return self.new_id
 
+    def delete_habit(self, habit_id: int):
+        if habit_id in self.habits:
+            del self.habits[habit_id]
+            self.save()
+            return True
+        else:
+            return False
+
     def get_habit(self, habit_id: int):
         habit = self.habits[habit_id]
         return habit
