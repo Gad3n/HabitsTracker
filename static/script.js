@@ -7,8 +7,13 @@ async function loadHabits() {
     habits.forEach(habit => {
         const block = document.createElement('div');
         block.dataset.id = habit.id;
+        block.className = 'habit_card';
         const nameSpan = document.createElement('span');
+        nameSpan.className = 'name_span';
         nameSpan.textContent = habit.name;
+
+        const elementDiv = document.createElement('div');
+        elementDiv.className = 'elementDiv';
 
         const completeBtn = document.createElement('button');
         const deleteBtn = document.createElement('button');
@@ -48,9 +53,10 @@ async function loadHabits() {
             }
         });
 
+        elementDiv.appendChild(completeBtn);
+        elementDiv.appendChild(deleteBtn);
         block.appendChild(nameSpan);
-        block.appendChild(completeBtn);
-        block.appendChild(deleteBtn);
+        block.appendChild(elementDiv);
         container.appendChild(block);
     })
 }

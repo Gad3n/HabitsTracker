@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5ebe1;
@@ -15,14 +23,43 @@ body {
 .container {
     max-width: 600px;
     margin: 0;
-    background-color: white;
+    background-color: rgb(250, 246, 246);
     color: #646357;
-    padding: 30px;
+    padding: 13px;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 
+.habit_card {
+    background-color: #eeeeee;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #646357;
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+}
+
+.elementDiv {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.name_span {
+    padding-left: 5px;
+    font-size: 25px;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
 
 .complete_button {
     width: 40px;
@@ -83,8 +120,8 @@ body {
 
 #form_opener {
     display: block;
-    margin: 20px auto;
-    padding: 12px 24px;
+    margin: 4px 9px;
+    padding: 15px 20px;
     font-size: 18px;
     background-color: #4caf50;
     color: white;

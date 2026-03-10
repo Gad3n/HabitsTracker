@@ -10,11 +10,10 @@
 </head>
 
 <body>
-    <h3>
-        Habits List
-    </h3>
-
-    <button id="form_opener">Add</button>
+    <div class="header">
+        <h2>Habits Tracker</h2>
+        <button id="form_opener">+</button>
+    </div>
 
     <div id="form_window" , class="form_window hidden">
         <div id="form_content">
@@ -23,7 +22,7 @@
             <form id="habit_create">
                 <div class="form_block">
                     <label for="form_habit_name">Name:</label>
-                    <input type="text" , id="form_habit_name" , name="habit_name" , required>
+                    <input type="text" , id="form_habit_name" , name="habit_name" , maxlength="30" required>
                 </div>
                 <div class="form_block">
                     <label for="form_habit_color">Color:</label>

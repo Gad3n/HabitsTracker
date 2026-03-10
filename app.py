@@ -3,9 +3,10 @@ from flask import Flask, jsonify, request, render_template
 from main import Tracker, Habit
 from pyngrok import ngrok
 import pyngrok.conf
+from TOKEN import token
 
 app = Flask(__name__)
-ngrok.set_auth_token('3AgLlX0vHV48rlnTDWRdJOgIr99_5Jf6t7F81JUBnkdmsjgYY')
+ngrok.set_auth_token(token)
 pyngrok.conf.get_default().region = 'eu'
 tracker = Tracker()
 tracker.load()
