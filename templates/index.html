@@ -13,14 +13,32 @@
     <h3>
         Habits List
     </h3>
-    <form id="habit_create" , method="post">
-        <input type="text" , name="habit_name" , id="habit_name" , placeholder="Habits name" required><br>
-        <input type="color" , name="habit_color" , id="habit_color"><br>
-        <button type="submit">Sumbit</button><br>
-    </form>
+
+    <button id="form_opener">Add</button>
+
+    <div id="form_window" , class="form_window hidden">
+        <div id="form_content">
+            <span id="close_button">&times;</span>
+            <h2>Habit create</h2>
+            <form id="habit_create">
+                <div class="form_block">
+                    <label for="form_habit_name">Name:</label>
+                    <input type="text" , id="form_habit_name" , name="habit_name" , required>
+                </div>
+                <div class="form_block">
+                    <label for="form_habit_color">Color:</label>
+                    <input type="color" , id="form_habit_color" , name="habit_color" , required>
+                </div>
+                <div class="form_block">
+                    <button type="submit" class="sumbit_button">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
 
     <div class="container" id="habits_list"></div>
-    <script src="{{url_for('static', filename='scipt.js')}}"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 
 </body>
 

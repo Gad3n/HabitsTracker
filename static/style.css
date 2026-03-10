@@ -22,50 +22,7 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-#habit_create {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
 
-#habit_name {
-    flex: 1;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-#habit_name:focus {
-    border-color: #007bff;
-}
-
-#habit_color {
-    width: 50px;
-    height: 40px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: transparent;
-}
-
-button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #28a;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-button[type="submit"]:hover {
-    background-color: #218831;
-}
 
 .complete_button {
     width: 40px;
@@ -122,4 +79,110 @@ button[type="submit"]:hover {
 
 .complete_button.completed {
     background-color: #7f84f3;
+}
+
+#form_opener {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 24px;
+    font-size: 18px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#form_opener:hover {
+    background-color: #45a049;
+}
+
+#form_window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#form_window.hidden {
+    display: none !important;
+}
+
+#form_content {
+    background: white;
+    margin: 10px auto;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.sumbit_button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background-color: #4ca;
+    color: white;
+
+    border: none;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-style: 20px;
+
+    transition: all 0.2s ease;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#close_button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+#close_button {
+    color: black;
+}
+
+.form_block {
+    margin-bottom: 20px;
+}
+
+.form_block label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.form_block input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-style: 16px;
+}
+
+.form_block input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }

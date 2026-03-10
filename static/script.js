@@ -55,20 +55,50 @@ async function loadHabits() {
     })
 }
 
-document.getElementById('habit_create').addEventListener('submit', function (e) {
+document.getElementById('habit_create').addEventListener('submit', async function (e) {
     e.preventDefault();
-    const formData = new FormData(this)
-    const data = Object.fromEntries(formData.entries());
-
-    fetch('/habits', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-        .then(response => response.json())
-        .then(result => console.log(result))
+    const habit_name = document.getElementById('form_habit_name').value;
+    const habit_color = document.getElementById('form_habit_color').value;
+    console.log('Data send:', { habit_name, habit_color });
+    try {
+        const response = await fetch('/habits', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ habit_name, habit_color })
+        });
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Status error:', response.status);
+            console.error('Answer body:', errorText);
+            throw new Error(`HTTP ${response.status}: ${errorText}`)
+        }
+        const result = await response.json();
+        console.log('Habit add');
+        closeForm();
+        document.getElementById('form_habit_name').value = '';
+        document.getElementById('form_habit_color').value = '#ff9800';
+        loadHabits();
+    } catch (err) {
+        console.error(err);
+        alert('Habit dont add');
+    }
 })
+
+const form = document.getElementById('form_window')
+const openBtn = document.getElementById('form_opener')
+const closeBtn = document.getElementById('close_button')
+
+function openForm() {
+    form.classList.remove('hidden')
+}
+
+function closeForm() {
+    form.classList.add('hidden')
+}
+
+openBtn.addEventListener('click', openForm)
+closeBtn.addEventListener('click', closeForm)
 
 loadHabits()
